@@ -17,6 +17,20 @@ about anything and the service will figure it out.
 
 So, `printcs.sh` was born.
 
+----
+
+*Please see the full usage via `./printcs.sh`.*
+
+`./printcs.sh username file [labmachine]`
+
+ - username -- your username for the CS Dept. This will typically be your NetID.
+
+- file -- the file to transfer and print (PDF, PostScript, or plain text)
+
+- labmachine -- optional. the name of the computer to print from.
+
+----
+
 `printcs.sh` does the following in a normal run:
 - Verifies the file is a supported type.
 - Verifies the host you've selected exists and is known to your machine
