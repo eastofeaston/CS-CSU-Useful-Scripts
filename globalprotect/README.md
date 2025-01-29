@@ -4,7 +4,7 @@ Built for Mac.
 
 ## globalprotect.sh
 
-This is syntactic sugar for systemctl. However, I prefer being able to toggle 
+This is syntactic sugar for launchctl. However, I prefer being able to toggle 
 the VPN without having to go dig for that command. Essentially, there are two 
 options.
 
