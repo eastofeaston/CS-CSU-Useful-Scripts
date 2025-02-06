@@ -2,6 +2,16 @@
 
 # ! Requires real tabs for the heredoc to work properly !
 
+function safeopen {
+	sleep 0.4
+	kernel="$(uname -s)"
+	if [[ "Darwin" ==  "$kernel" ]]; then
+		open "$1"
+	else
+		xdg-open "$1"
+	fi
+}
+
 # Check if cs454 image exists
 if [ -z "$(docker images -q cs454)" ]; then
 	cat <<-EOF
@@ -25,6 +35,12 @@ if docker run -d --rm --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 
 	name=$(docker ps --format "{{.Image}} {{.Names}}" | grep cs454 | awk '{print $2}')
 	cat <<-EOF
 		Launched container $name with image cs454.
-		Container running: http://localhost:8012/
+		Jupyter running here: http://localhost:8012/
+		EOF
+fi
+
+if ! safeopen "http://localhost:8012/"; then
+	cat <<-EOF
+		Failed to automatically open Jupyter notebooks.
 		EOF
 fi
